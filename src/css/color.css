@@ -1,0 +1,22 @@
+:root {
+  --bg-color: #fff;
+  --layer-bg-color: #f0f0f0;
+  --text-color: #333;
+  --primary-color: #6495ED;
+  --border-color-base: #d9d9d9;
+}
+
+[color-scheme="dark"] {
+  --bg-color: #424242;
+  --layer-bg-color: #585858;
+  --primary-color: #4169E1;
+  --text-color: #f7f7f7;
+  --border-color-base: #282828;
+  --input-color: #6f6f70;
+}
+
+[color-scheme="light"] {
+  --bg-color: #fff;
+  --border-color-base: #575757;
+  --input-color: #e6e7e8;
+}

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.ant-form-item-label {
+  @apply text-xl;
+}
+.ant-form-item-label label.ant-form-item-required::before {
+  display: none !important;
+}
+.ant-switch {
+  @apply bg-t-primary-color;
+}
+
+.ant-switch-inner {
+  @apply hover:bg-t-primary-color;
+}
+
+.ant-form-item-label > label {
+  @apply text-t-text-color !important;
+}
+
+.ant-input {
+  @apply bg-t-input-color !important;
+  @apply text-t-text-color !important;
+}
+
+.ant-input-affix-wrapper {
+  @apply bg-t-input-color !important;
+  @apply text-t-text-color !important;
+}

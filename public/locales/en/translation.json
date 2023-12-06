@@ -1,0 +1,61 @@
+{
+    "register":{
+        "title":"online Platform",
+        "introMessage":"Register to use the features of online Platform",
+        "register":"Register",
+        "mobile":"mobile",
+        "password":"password",
+        "repeatPassword":"repeat password",
+        "alreadyRegistered":"already registered?",
+        "stillNotRegistred":"still not registered?",
+        "signin":"signin",
+        "saving":"saving",
+        "successOperation":"Your Changes have been suceessfully saved",
+        "validation":{
+            "mobileRequired":"mobile is required",
+            "passwordRequired":"password is required",
+            "repeatPasswordRequired":"repeat password is required",
+            "mobileLength":"mobile number must be 11 digits",
+            "mobileisNumber":"mobile must be include number",
+            "notMatching":"password do not match",
+            "PasswordTooShort":"password must be at least 6 characters",
+            "DuplicateUserName":"this username is already taken"
+        
+    },
+    "login": {
+      "title": "Online Education Platform",
+      "introMessage": "To log in, you need to use your mobile phone and password",
+      "signingin": "Signing in ...",
+      "signin": "Sign in",
+      "successfully":"you are welcome",
+      "register": "Register",
+      "mobile": "Mobile",
+      "password": "Password",
+      "areNotRegistered": "You're not registered?",
+      "validation": {
+        "mobileRequired": "Mobile is required",
+        "passwordRequired": "Password is required",
+        "IncorrectUserNameOrPassword": "The username or password is incorrect"
+      }
+    },
+    "mainLayout": {
+      "sidebar": {
+        "subtitle": "Online Education Platform",
+        "courseManagement": "Course Management",
+        "allCourses": "All Courses",
+        "coursesCategory": "Courses Category",
+        "courseDiscount": "Course Discount",
+        "userManagement": "User Management",
+        "teacherManagement": "Teacher Management",
+        "studentManagement": "Student Management",
+        "blogManagement": "BlogManagement",
+        "tagManagement": "TagManagement",
+        "postManagement": "PostManagement"
+      }
+    },
+    "categoryList": {
+      "DeleteIsNotPossible": "It is not possible to delete this category",
+      "DuplicateCategory": "The category is duplicate"
+    }
+    }
+}
