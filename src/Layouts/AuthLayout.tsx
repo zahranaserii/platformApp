@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import ChangeLanguage from "../components/ChangeLanguage";
 import ChangeTheme from "../components/ChangeTheme";
 
-const IdentityLayout = () => {
+const AuthLayout = () => {
   //consttant
   const { t } = useTranslation();
   //effect
@@ -26,4 +26,4 @@ const IdentityLayout = () => {
   );
 };
 
-export default IdentityLayout;
+export default AuthLayout;

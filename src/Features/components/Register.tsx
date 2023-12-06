@@ -11,7 +11,7 @@ import { httpServise } from "../../core/http-servise";
 import { IErrorModel } from "../../models/LoginModel";
 import { IRegisterModel } from "../../models/RegisterModel";
 
-const Regiester: FC = () => {
+const Register: FC = () => {
   //states
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -168,4 +168,4 @@ const Regiester: FC = () => {
   );
 };
 
-export default Regiester;
+export default Register;

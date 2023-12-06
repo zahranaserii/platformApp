@@ -1,42 +1,56 @@
 import { createBrowserRouter } from "react-router-dom";
 import Courses from "../src/pages/Courses.tsx";
-import Login from "./Features/components/Login";
-import Register from "./Features/components/Regiester";
-import IdentityLayout from "./Layouts/IdentityLayout.tsx";
+import Login from "./Features/components/Login.tsx";
+import Register from "./Features/components/Register.tsx";
+import AuthLayout from "./Layouts/AuthLayout.tsx";
 import MainLayout from "./Layouts/Main/MainLayout.tsx";
 import Home from "./pages/Home.tsx";
+import ProtectAuthRoute from "./pages/ProtectAuthRoute.tsx";
+import ProtectPrivateRoutes from "./pages/ProtectPrivateRoutes.tsx";
 import Public from "./pages/Public.tsx";
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <MainLayout />, //protected routes
+    element: <ProtectPrivateRoutes />,
     children: [
       {
-        element: <Courses />,
-        index: true,
-      },
-      {
-        path: "/home",
-        element: <Home />,
+        path: "/",
+        element: <MainLayout />,
+        children: [
+          {
+            element: <Courses />,
+            index: true,
+          },
+          {
+            path: "/home",
+            element: <Home />,
+          },
+        ],
       },
     ],
   },
   {
-    element: <IdentityLayout />,
+    element: <ProtectAuthRoute />,
     children: [
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
+        path: "/",
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "/login",
+            element: <Login />,
+          },
+          {
+            path: "/register",
+            element: <Register />,
+          },
+        ],
       },
     ],
   },
   {
+    element: <Public />,
     path: "/public",
-    element: <Public />, //public page
   },
+  { path: "*", element: <p>not found</p> },
 ]);
 export default router;
