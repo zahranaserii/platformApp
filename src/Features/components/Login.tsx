@@ -114,7 +114,7 @@ const Login = () => {
               }
             />
           </Form.Item>
-          <div className="flex justify-center pr-7">
+          <div className="flex justify-center">
             <Button
               disabled={loading}
               htmlType="submit"

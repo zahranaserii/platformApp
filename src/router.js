@@ -4,7 +4,8 @@ import Login from "./Features/components/Login.tsx";
 import Register from "./Features/components/Register.tsx";
 import AuthLayout from "./Layouts/AuthLayout.tsx";
 import MainLayout from "./Layouts/Main/MainLayout.tsx";
-import Home from "./pages/Home.tsx";
+import CourseCategory from "./pages/CourseCategory.tsx";
+import CourseDetail from "./pages/CourseDetail.tsx";
 import ProtectAuthRoute from "./pages/ProtectAuthRoute.tsx";
 import ProtectPrivateRoutes from "./pages/ProtectPrivateRoutes.tsx";
 import Public from "./pages/Public.tsx";
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
             index: true,
           },
           {
-            path: "/home",
-            element: <Home />,
+            path: "/courses/:id",
+            element: <CourseDetail />,
+          },
+          {
+            element: <CourseCategory />,
+            path: "courseCategory",
           },
         ],
       },
@@ -36,11 +41,11 @@ const router = createBrowserRouter([
         element: <AuthLayout />,
         children: [
           {
-            path: "/login",
+            path: "login",
             element: <Login />,
           },
           {
-            path: "/register",
+            path: "register",
             element: <Register />,
           },
         ],

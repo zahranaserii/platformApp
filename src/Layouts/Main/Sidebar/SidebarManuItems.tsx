@@ -9,28 +9,38 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { FC, ReactNode } from "react";
+import { Link } from "react-router-dom";
 type Iprops = {
   open?: boolean;
   isHorizontal?: boolean;
 };
 const SidebarManuItems: FC<Iprops> = ({ open, isHorizontal }) => {
   //constants
-  const sidebarMenu: { title: string; icon: ReactNode }[] = [
-    { title: "داشبورد", icon: <DashboardOutlined /> },
-    { title: "صندوق ورودی", icon: <InboxOutlined /> },
-    { title: "اکانت ها", icon: <AccountBookOutlined /> },
-    { title: "برنامه ها", icon: <ScheduleOutlined /> },
-    { title: "جستجو", icon: <SearchOutlined /> },
-    { title: "تجزیه و تحلیل", icon: <DotChartOutlined /> },
-    { title: "فایل ها", icon: <FileOutlined /> },
-    { title: "تنظیمات", icon: <SettingOutlined /> },
+  const sidebarMenu: { title: string; icon: ReactNode; to: string }[] = [
+    {
+      title: "همه ی دوره ها",
+      icon: <DashboardOutlined />,
+      to: "/",
+    },
+    { title: "دسته بندی دوره ها", icon: <InboxOutlined />, to: "/courseCategory" },
+    { title: "اکانت ها", icon: <AccountBookOutlined />, to: "/CourseCategory" },
+    { title: "برنامه ها", icon: <ScheduleOutlined />, to: "/CourseCategory" },
+    { title: "جستجو", icon: <SearchOutlined />, to: "/CourseCategory" },
+    {
+      title: "تجزیه و تحلیل",
+      icon: <DotChartOutlined />,
+      to: "/CourseCategory",
+    },
+    { title: "فایل ها", icon: <FileOutlined />, to: "/CourseCategory" },
+    { title: "تنظیمات", icon: <SettingOutlined />, to: "/CourseCategory" },
   ];
 
   return (
     <div className="py-2 transition-all duration-500 ease-out ">
       {sidebarMenu.map((item, index) => {
         return (
-          <div
+          <Link
+            to={item.to}
             key={index}
             className={`flex items-center mr-4 px-3 gap-x-3 py-3 cursor-pointer hover:bg-white/30 rounded-md ${
               isHorizontal && !open && "ml-4"
@@ -52,7 +62,7 @@ const SidebarManuItems: FC<Iprops> = ({ open, isHorizontal }) => {
             >
               {item.title}
             </span>
-          </div>
+          </Link>
         );
       })}
     </div>

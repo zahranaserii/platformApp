@@ -7,7 +7,7 @@ const NavbarBurgerMenu = () => {
       <MenuOutlined />
       <div
         style={{ width: "calc(100vw - 80px)" }}
-        className="absolute py-2.5 top-full right-0 group-hover:block hidden"
+        className="absolute py-2.5 z-50 top-full right-0 group-hover:block hidden"
       >
         <HorizotalSidebar />
       </div>

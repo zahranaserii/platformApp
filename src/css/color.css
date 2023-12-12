@@ -2,15 +2,17 @@
   --bg-color: #fff;
   --layer-bg-color: #f0f0f0;
   --text-color: #333;
-  --primary-color: #6495ED;
+  --primary-color: #6495ed;
   --border-color-base: #d9d9d9;
+  --text-color-secondary: rgba(0, 0, 0, 0.45);
 }
 
 [color-scheme="dark"] {
   --bg-color: #424242;
   --layer-bg-color: #585858;
-  --primary-color: #4169E1;
+  --primary-color: #3246f0;
   --text-color: #f7f7f7;
+  --text-color-secondary: #b8b8ba;
   --border-color-base: #282828;
   --input-color: #6f6f70;
 }
@@ -19,4 +21,5 @@
   --bg-color: #fff;
   --border-color-base: #575757;
   --input-color: #e6e7e8;
+  --text-color-secondary: rgba(0, 0, 0, 0.45);
 }

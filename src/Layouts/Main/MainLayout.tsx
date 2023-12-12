@@ -16,10 +16,11 @@ const MainLayout = () => {
     if (!token) navigate("/login");
   }, [token]);
   return (
-    <div className="flex gap-x-1 pl-3 overflow-y-scroll h-screen">
+    <div className="flex gap-x-1 pl-3 overflow-y-scroll  h-screen bg-t-bg-color">
       <SidebarNew />
-      <div className="flex flex-col w-full max-w-6xl mx-auto">
+      <div className="flex bg-t-bg-color flex-col w-full max-w-6xl mx-auto">
         <Navbar />
+        
         <Outlet />
       </div>
     </div>
