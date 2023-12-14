@@ -2,6 +2,7 @@ import { message } from "antd";
 import { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import BackButton from "../components/BackButton";
 import CourseDetailBoxItem from "../components/Course/CourseDetailBoxItem";
 import LoadingCover from "../components/LoadingCover";
 import { httpInterseptedServise } from "../core/http-servise";
@@ -70,6 +71,7 @@ const CourseDetail = () => {
   return (
     <>
       <LoadingCover loading={loading} />
+      <BackButton />
       <div className=" flex flex-col gap-8">
         <div className=" flex flex-col justify-center bg-t-layer-bg-color ">
           <div className="px-36 flex justify-center">

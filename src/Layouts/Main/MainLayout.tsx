@@ -20,7 +20,6 @@ const MainLayout = () => {
       <SidebarNew />
       <div className="flex bg-t-bg-color flex-col w-full max-w-6xl mx-auto">
         <Navbar />
-        
         <Outlet />
       </div>
     </div>

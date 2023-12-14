@@ -1,8 +1,8 @@
-import { Spin } from "antd";
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import CourseList from "../components/Course/CourseList";
 import NewCourseButton from "../components/Course/NewCourseButton";
+import LoadingCover from "../components/LoadingCover";
 import { httpInterseptedServise } from "../core/http-servise";
 import { ICourseList } from "../models/CourseModel";
 
@@ -29,7 +29,7 @@ const Courses = () => {
   }, []);
   return (
     <>
-      {loading && <Spin />}
+      <LoadingCover loading={loading} />
       <NewCourseButton />
       <CourseList data={courseList} />
     </>

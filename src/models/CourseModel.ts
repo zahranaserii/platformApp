@@ -29,3 +29,15 @@ export interface ICourseDetail {
   numOfReviews: number;
   basePrice: number;
 }
+
+export interface ICourseCategory {
+  totalRecords: number;
+  data: {
+    id: number;
+    name: string;
+  }[];
+}
+export interface ICourseCategoryRowObj {
+  id: number;
+  name: string;
+}

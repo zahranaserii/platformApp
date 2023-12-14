@@ -10,6 +10,8 @@ module.exports = {
         "t-layer-bg-color": "var(--layer-bg-color)",
         "t-input-color": "var(--input-color)",
         "t-text-scondary-color": "var(--text-color-secondary)",
+        "t-bg-table-even": "var(--table-even-row)",
+        "t-bg-table-odd": "var(--table-even-odd)",
       },
     },
   },

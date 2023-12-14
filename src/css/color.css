@@ -5,6 +5,8 @@
   --primary-color: #6495ed;
   --border-color-base: #d9d9d9;
   --text-color-secondary: rgba(0, 0, 0, 0.45);
+  --table-odd-row: rgb(245, 245, 245);
+  --table-even-row: var(--bg-color);
 }
 
 [color-scheme="dark"] {
@@ -15,6 +17,8 @@
   --text-color-secondary: #b8b8ba;
   --border-color-base: #282828;
   --input-color: #6f6f70;
+  --table-odd-row: #404040;
+  --table-even-row: #393939;
 }
 
 [color-scheme="light"] {
@@ -22,4 +26,6 @@
   --border-color-base: #575757;
   --input-color: #e6e7e8;
   --text-color-secondary: rgba(0, 0, 0, 0.45);
+  --table-even-row: var(--bg-color);
+  --table-odd-row: rgb(245, 245, 245);
 }

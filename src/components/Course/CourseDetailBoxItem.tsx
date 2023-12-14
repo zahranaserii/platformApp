@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 interface IProps {
   data: {
@@ -9,7 +9,7 @@ interface IProps {
 
 const CourseDetailBoxItem: FC<IProps> = ({ data }) => {
   return (
-    <div className="bg-t-layer-bg-color rounded-md px-5 py-5 flex gap-1 flex-col justify-between items-center">
+    <div className="bg-t-layer-bg-color rounded-md px-5 py-5 flex gap-1 flex-col justify-between items-center cursor-pointer">
       <span className="text-t-primary-color text-sm font-medium">
         {data.title}
       </span>
