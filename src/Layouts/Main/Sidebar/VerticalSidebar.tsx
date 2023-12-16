@@ -7,7 +7,7 @@ const VerticalSidebar: FC = () => {
   const [open, setopen] = useState<boolean>(false);
   return (
     <div
-      className={`bg-t-primary-color hidden md:block relative h-full py-7 ${
+      className={`bg-t-primary-color hidden md:block relative min-h-screen h-full py-7 ${
         open ? "w-72" : "w-20"
       }`}
     >

@@ -72,15 +72,13 @@
 }
 
 .ant-pagination-item-active {
-  @apply bg-t-bg-color border-t-primary-color text-t-text-color !important;
+  @apply bg-t-bg-color border-2 border-t-primary-color text-t-text-color !important;
 }
 
 .ant-pagination-item {
-  background-color: #f0f0f0;
-  border-color: #d9d9d9;
-  color: #333;
+  @apply text-t-text-color bg-t-layer-bg-color !important;
 }
 
 .ant-pagination-item:hover {
-  @apply bg-t-primary-color  text-t-text-color !important;
+  @apply bg-t-primary-color text-t-text-color !important;
 }

@@ -1,14 +1,14 @@
 import {
   AccountBookOutlined,
-  DashboardOutlined,
   DotChartOutlined,
   FileOutlined,
-  InboxOutlined,
   ScheduleOutlined,
   SearchOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import { FC, ReactNode } from "react";
+import { HiOutlineBuildingLibrary } from "react-icons/hi2";
+import { TbCategory } from "react-icons/tb";
 import { Link } from "react-router-dom";
 type Iprops = {
   open?: boolean;
@@ -19,10 +19,10 @@ const SidebarManuItems: FC<Iprops> = ({ open, isHorizontal }) => {
   const sidebarMenu: { title: string; icon: ReactNode; to: string }[] = [
     {
       title: "همه ی دوره ها",
-      icon: <DashboardOutlined />,
+      icon: <HiOutlineBuildingLibrary />,
       to: "/",
     },
-    { title: "دسته بندی دوره ها", icon: <InboxOutlined />, to: "/courseCategory" },
+    { title: "دسته بندی دوره ها", icon: <TbCategory />, to: "/courseCategory" },
     { title: "اکانت ها", icon: <AccountBookOutlined />, to: "/CourseCategory" },
     { title: "برنامه ها", icon: <ScheduleOutlined />, to: "/CourseCategory" },
     { title: "جستجو", icon: <SearchOutlined />, to: "/CourseCategory" },

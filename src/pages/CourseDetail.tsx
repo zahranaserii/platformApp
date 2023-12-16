@@ -82,7 +82,7 @@ const CourseDetail = () => {
             />
           </div>
           <div className="flex flex-col gap-2 px-6 items-center justify-center py-4 ">
-            <span className="relative flex items-center justify-center bg-t-primary-color w-10 h-6  rounded-md text-t-text-color text-sm">
+            <span className="relative flex items-center justify-center bg-t-primary-color px-2 h-6  rounded-md text-t-text-color text-sm">
               {data?.courseCategory}
             </span>
             <span className="font-semibold text-t-text-color">

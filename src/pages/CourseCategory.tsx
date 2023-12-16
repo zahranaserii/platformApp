@@ -1,9 +1,10 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Pagination, Table, message } from "antd";
+import { Button, Pagination, Popover, Table, message } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CourseCategoryEditModal from "../components/Course/CourseCategoryEditModal";
 import LoadingCover from "../components/LoadingCover";
 import { httpInterseptedServise } from "../core/http-servise";
 import { ICourseCategory, ICourseCategoryRowObj } from "../models/CourseModel";
@@ -16,6 +17,9 @@ const CourseCategory = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(3);
+  const [showEditModal, setShowEditModal] = useState<
+    ICourseCategoryRowObj | undefined
+  >();
 
   //hooks
   const navigate = useNavigate();
@@ -51,11 +55,43 @@ const CourseCategory = () => {
       .replace(/\d/g, (match: any) => persianNumbers[parseInt(match)]);
   };
 
+  const deleteCourseCategory = async (courseCategoryId: number) => {
+    setLoading(true);
+    await httpInterseptedServise
+      .delete("/CourseCategory" + "/" + courseCategoryId)
+      .then((res: AxiosResponse<ICourseCategoryRowObj>) => {
+        setLoading(false);
+        message.success("عملیات با موفقیت انجام شد");
+        getCourseCategory();
+      })
+      .catch((error: AxiosError) => {
+        setLoading(false);
+        message.error(error.message);
+      });
+  };
+
   //effect
   useEffect(() => {
     getCourseCategory();
   }, [page, pageSize]);
   //constant
+  const contentDeletPopup = (record: Record<string, any>) => {
+    return (
+      <>
+        <div>این دوره حذف شود؟</div>
+        <div className="flex justify-end gap-1 ">
+          <Button size="small">لغو</Button>
+          <Button
+            size="small"
+            className="bg-t-primary-color text-t-text-color"
+            onClick={() => deleteCourseCategory(record.id)}
+          >
+            حذف
+          </Button>
+        </div>
+      </>
+    );
+  };
   const columns: ColumnsType<ICourseCategoryRowObj> = [
     {
       title: "نام",
@@ -72,10 +108,16 @@ const CourseCategory = () => {
       render: (_text, record) => (
         <div className="flex gap-x-5">
           <div className="cursor-pointer text-base text-t-primary-color">
-            <EditOutlined />
+            <EditOutlined
+              onClick={() => {
+                setShowEditModal(record);
+              }}
+            />
           </div>
           <div className="cursor-pointer text-base text-t-primary-color">
-            <DeleteOutlined />
+            <Popover content={contentDeletPopup(record)}>
+              <DeleteOutlined />
+            </Popover>
           </div>
         </div>
       ),
@@ -106,6 +148,11 @@ const CourseCategory = () => {
           }}
         />
       </div>
+      <CourseCategoryEditModal
+        open={showEditModal}
+        close={() => setShowEditModal(undefined)}
+        refetch={() => getCourseCategory()}
+      />
     </div>
   );
 };

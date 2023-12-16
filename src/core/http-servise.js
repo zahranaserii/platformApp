@@ -1,12 +1,12 @@
 import axios from "axios";
-const BASE_URL = "https://react-mini-projects-api.classbon.com/";
+// const BASE_URL = "https://react-mini-projects-api.classbon.com/";
 
 export const httpServise = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
 
 export const httpInterseptedServise = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
 httpInterseptedServise.interceptors.request.use(
   async (config) => {
