@@ -6,12 +6,15 @@ import AuthLayout from "./Layouts/AuthLayout.tsx";
 import MainLayout from "./Layouts/Main/MainLayout.tsx";
 import CourseCategory from "./pages/CourseCategory.tsx";
 import CourseDetail from "./pages/CourseDetail.tsx";
+import NotFound from "./pages/NotFound.tsx";
 import ProtectAuthRoute from "./pages/ProtectAuthRoute.tsx";
 import ProtectPrivateRoutes from "./pages/ProtectPrivateRoutes.tsx";
 import Public from "./pages/Public.tsx";
+import UnExceptionHandler from "./pages/unExpectentionHandler.tsx";
 const router = createBrowserRouter([
   {
     element: <ProtectPrivateRoutes />,
+    errorElement: <UnExceptionHandler />,
     children: [
       {
         path: "/",
@@ -56,6 +59,6 @@ const router = createBrowserRouter([
     element: <Public />,
     path: "/public",
   },
-  { path: "*", element: <p>not found</p> },
+  { path: "*", element: <NotFound /> },
 ]);
 export default router;

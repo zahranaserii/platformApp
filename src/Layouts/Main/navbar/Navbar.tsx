@@ -3,12 +3,15 @@ import {
   HistoryOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 import ChangeTheme from "../../../components/ChangeTheme";
 import NavbarBurgerMenu from "./components/NavbarBurgerMenu";
 import NavbarItem from "./components/NavbarItem";
-import NavbarUserItem from "./components/NavbarUserItem";
 
 const Navbar = () => {
+  //hooks
+  const navigate = useNavigate();
   return (
     <div className="flex py-4">
       <div className="p-3 bg-t-primary-color border-2 border-black flex w-full h-12 rounded-md items-center ">
@@ -22,7 +25,18 @@ const Navbar = () => {
             <NavbarItem icon={<HistoryOutlined />} />
             <NavbarItem icon={<BellOutlined />} />
           </div>
-          <NavbarUserItem />
+          {/* <NavbarUserItem /> */}
+          <div>
+            <Button
+              className="bg-t-primary-color hover:bg-t-layer-bg-color text-t-text-color"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }}
+            >
+              خارج شوید
+            </Button>
+          </div>
         </div>
       </div>
     </div>

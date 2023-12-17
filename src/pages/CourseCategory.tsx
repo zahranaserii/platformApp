@@ -4,6 +4,7 @@ import { ColumnsType } from "antd/es/table";
 import { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CourseCategoryCreate from "../components/Course/CourseCategoryCreate";
 import CourseCategoryEditModal from "../components/Course/CourseCategoryEditModal";
 import LoadingCover from "../components/LoadingCover";
 import { httpInterseptedServise } from "../core/http-servise";
@@ -20,6 +21,7 @@ const CourseCategory = () => {
   const [showEditModal, setShowEditModal] = useState<
     ICourseCategoryRowObj | undefined
   >();
+  const [showCreateModal, setshowCreateModal] = useState<boolean>(false);
 
   //hooks
   const navigate = useNavigate();
@@ -35,7 +37,15 @@ const CourseCategory = () => {
       })
       .catch((err: AxiosError) => {
         setLoading(false);
-        message.error(err.message);
+        message.open({
+          type: "error",
+          duration: 5,
+          content: err.message,
+          style: {
+            marginTop: "85vh",
+            marginRight: "70vw",
+          },
+        });
       });
   };
 
@@ -59,14 +69,26 @@ const CourseCategory = () => {
     setLoading(true);
     await httpInterseptedServise
       .delete("/CourseCategory" + "/" + courseCategoryId)
-      .then((res: AxiosResponse<ICourseCategoryRowObj>) => {
+      .then(() => {
         setLoading(false);
-        message.success("عملیات با موفقیت انجام شد");
+        message.open({
+          type: "success",
+          duration: 5,
+          content: "عملیات با موفقیت انجام شد",
+        });
         getCourseCategory();
       })
       .catch((error: AxiosError) => {
         setLoading(false);
-        message.error(error.message);
+        message.open({
+          type: "error",
+          duration: 5,
+          content: error.message,
+          style: {
+            marginTop: "85vh",
+            marginRight: "70vw",
+          },
+        });
       });
   };
 
@@ -79,8 +101,7 @@ const CourseCategory = () => {
     return (
       <>
         <div>این دوره حذف شود؟</div>
-        <div className="flex justify-end gap-1 ">
-          <Button size="small">لغو</Button>
+        <div className="flex justify-end">
           <Button
             size="small"
             className="bg-t-primary-color text-t-text-color"
@@ -125,34 +146,49 @@ const CourseCategory = () => {
   ];
 
   return (
-    <div>
-      {loading && <LoadingCover loading={loading} />}
-      <Table
-        pagination={false}
-        className="border border-t-layer-bg-color overflow-hidden rounded-lg"
-        dataSource={courseCategory?.data}
-        columns={columns}
-      />
-      <div className="flex justify-center pt-3">
-        <Pagination
-          current={page}
-          pageSize={pageSize}
-          total={courseCategory?.totalRecords}
-          onChange={handleChangePagination}
-          onShowSizeChange={handleChangePagination}
-          itemRender={(current, type, originalElement) => {
-            if (type === "page") {
-              return convertToPersianNumbers(current);
-            }
-            return originalElement;
-          }}
+    <div className="flex flex-col gap-2">
+      <div>
+        <Button
+          className="w-fix text-sm text-t-text-color bg-t-primary-color"
+          onClick={() => setshowCreateModal(true)}
+        >
+          افزودن دسته بندی جدید
+        </Button>
+      </div>
+      <div>
+        {loading && <LoadingCover loading={loading} />}
+        <Table
+          pagination={false}
+          className="border border-t-layer-bg-color overflow-hidden rounded-lg"
+          dataSource={courseCategory?.data}
+          columns={columns}
+        />
+        <div className="flex justify-center pt-3">
+          <Pagination
+            current={page}
+            pageSize={pageSize}
+            total={courseCategory?.totalRecords}
+            onChange={handleChangePagination}
+            onShowSizeChange={handleChangePagination}
+            itemRender={(current, type, originalElement) => {
+              if (type === "page") {
+                return convertToPersianNumbers(current);
+              }
+              return originalElement;
+            }}
+          />
+        </div>
+        <CourseCategoryEditModal
+          open={showEditModal}
+          close={() => setShowEditModal(undefined)}
+          refetch={() => getCourseCategory()}
+        />
+        <CourseCategoryCreate
+          open={showCreateModal}
+          close={() => setshowCreateModal(false)}
+          refetch={() => getCourseCategory}
         />
       </div>
-      <CourseCategoryEditModal
-        open={showEditModal}
-        close={() => setShowEditModal(undefined)}
-        refetch={() => getCourseCategory()}
-      />
     </div>
   );
 };

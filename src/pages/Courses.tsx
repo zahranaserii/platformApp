@@ -30,7 +30,7 @@ const Courses = () => {
   return (
     <>
       <LoadingCover loading={loading} />
-      <NewCourseButton />
+      {/* <NewCourseButton /> */}
       <CourseList data={courseList} />
     </>
   );

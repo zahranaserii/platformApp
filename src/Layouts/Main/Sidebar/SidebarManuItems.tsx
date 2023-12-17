@@ -36,15 +36,15 @@ const SidebarManuItems: FC<Iprops> = ({ open, isHorizontal }) => {
   ];
 
   return (
-    <div className="py-2 transition-all duration-500 ease-out ">
+    <div className={`py-2 transition-all duration-500 ease-out px-4  `}>
       {sidebarMenu.map((item, index) => {
         return (
           <Link
             to={item.to}
             key={index}
-            className={`flex items-center mr-4 px-3 gap-x-3 py-3 cursor-pointer hover:bg-white/30 rounded-md ${
+            className={`flex items-center px-3 w-full gap-x-3 py-3 cursor-pointer hover:bg-white/30 rounded-md ${
               isHorizontal && !open && "ml-4"
-            } ${open && "w-64"}`}
+            } ${open && "w-64 "}`}
           >
             <span
               className={`text-xl flex items-center ${

@@ -31,7 +31,7 @@ const VerticalSidebar: FC = () => {
         </span>
         <p className={`${open ? "block" : "hidden"}`}>zahra</p>
       </div>
-      <div className={`pt-8 ${!open ? "w-fit" : "w-56"}`}>
+      <div className={`pt-8  ${!open ? "w-fit" : "w-56"}`}>
         <SidebarManuItems open={open} />
       </div>
     </div>
