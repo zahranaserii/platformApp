@@ -36,7 +36,9 @@ const SidebarManuItems: FC<Iprops> = ({ open, isHorizontal }) => {
   ];
 
   return (
-    <div className={`py-2 transition-all duration-500 ease-out px-4  `}>
+    <div
+      className={`py-2 transition-all duration-500 ease-out px-4 text-t-text-color`}
+    >
       {sidebarMenu.map((item, index) => {
         return (
           <Link

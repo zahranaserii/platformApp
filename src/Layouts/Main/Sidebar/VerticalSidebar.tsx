@@ -21,7 +21,7 @@ const VerticalSidebar: FC = () => {
           className="relative right-[1px]"
         />
       </div>
-      <div className="flex px-6 items-center gap-4 ">
+      <div className="flex px-6 items-center gap-4 text-t-text-color ">
         <span
           className={`flex w-fit items-center justify-center text-3xl ${
             open && "rotate-[360deg] duration-700"

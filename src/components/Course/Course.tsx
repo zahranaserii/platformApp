@@ -18,7 +18,7 @@ const Course: FC<Iprops> = ({ data }) => {
       <div className="flex flex-col gap-2 items-center py-2 px-3">
         <Link
           to={`/courses/${data?.id}`}
-          className="text-sm text-t-primary-color font-semibold"
+          className="text-sm text-t-text-color border-b-2 font-semibold"
         >
           {data?.title}
         </Link>
