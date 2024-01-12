@@ -2,11 +2,11 @@ import { message } from "antd";
 import { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import BackButton from "../components/BackButton";
-import CourseDetailBoxItem from "../components/Course/CourseDetailBoxItem";
-import LoadingCover from "../components/LoadingCover";
-import { httpInterseptedServise } from "../core/http-servise";
-import { ICourseDetail } from "../models/CourseModel";
+import BackButton from "../../components/BackButton";
+import CourseDetailBoxItem from "../../components/Course/CourseDetailBoxItem";
+import LoadingCover from "../../components/LoadingCover";
+import { httpInterseptedServise } from "../../core/http-servise";
+import { ICourseDetail } from "../../models/CourseModel";
 
 const CourseDetail = () => {
   //states

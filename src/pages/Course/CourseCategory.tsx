@@ -4,11 +4,14 @@ import { ColumnsType } from "antd/es/table";
 import { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CourseCategoryCreate from "../components/Course/CourseCategoryCreate";
-import CourseCategoryEditModal from "../components/Course/CourseCategoryEditModal";
-import LoadingCover from "../components/LoadingCover";
-import { httpInterseptedServise } from "../core/http-servise";
-import { ICourseCategory, ICourseCategoryRowObj } from "../models/CourseModel";
+import CourseCategoryCreate from "../../components/Course/CourseCategoryCreate";
+import CourseCategoryEditModal from "../../components/Course/CourseCategoryEditModal";
+import LoadingCover from "../../components/LoadingCover";
+import { httpInterseptedServise } from "../../core/http-servise";
+import {
+  ICourseCategory,
+  ICourseCategoryRowObj,
+} from "../../models/CourseModel";
 
 const CourseCategory = () => {
   //state

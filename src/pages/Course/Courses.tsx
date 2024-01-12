@@ -1,10 +1,9 @@
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import CourseList from "../components/Course/CourseList";
-import NewCourseButton from "../components/Course/NewCourseButton";
-import LoadingCover from "../components/LoadingCover";
-import { httpInterseptedServise } from "../core/http-servise";
-import { ICourseList } from "../models/CourseModel";
+import CourseList from "../../components/Course/CourseList";
+import LoadingCover from "../../components/LoadingCover";
+import { httpInterseptedServise } from "../../core/http-servise";
+import { ICourseList } from "../../models/CourseModel";
 
 const Courses = () => {
   //states

@@ -23,9 +23,9 @@ const SidebarManuItems: FC<Iprops> = ({ open, isHorizontal }) => {
       to: "/",
     },
     { title: "دسته بندی دوره ها", icon: <TbCategory />, to: "/courseCategory" },
-    { title: "اکانت ها", icon: <AccountBookOutlined />, to: "/CourseCategory" },
-    { title: "برنامه ها", icon: <ScheduleOutlined />, to: "/CourseCategory" },
-    { title: "جستجو", icon: <SearchOutlined />, to: "/CourseCategory" },
+    { title: "فروشگاه", icon: <AccountBookOutlined />, to: "/shop" },
+    { title: "سبد خرید", icon: <ScheduleOutlined />, to: "/cart" },
+    { title: "نقشه", icon: <SearchOutlined />, to: "/map" },
     {
       title: "تجزیه و تحلیل",
       icon: <DotChartOutlined />,

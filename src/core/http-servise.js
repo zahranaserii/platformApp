@@ -29,3 +29,28 @@ httpInterseptedServise.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+export const httpInterseptedServise2 = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL_2,
+});
+httpInterseptedServise2.interceptors.request.use(
+  async (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+httpInterseptedServise2.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error.response.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
